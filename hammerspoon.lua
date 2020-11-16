@@ -80,6 +80,20 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "4", function()
     win:setFrame(f)
 end)
 
+-- Fullscreen
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "M", function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+  
+    f.x = max.x
+    f.y = max.y
+    f.w = max.w
+    f.h = max.h
+    win:setFrame(f)
+end)
+
 --[[
 detectMouseDown = hs.eventtap.new({ 
     hs.eventtap.event.types.otherMouseDown,
